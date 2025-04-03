@@ -14,10 +14,10 @@ void infoProduto(Produto prod) {
 // Exibe o menu principal
 void menu() {
     printf("================ Bem-vindo(a) - Solução Mercado ===========\n");
-    printf("1 - Cadastrar produto\n");
-    printf("2 - Listar produtos\n");
+    printf("1 - Cadastrar novo produto\n");
+    printf("2 - Listar produtos cadastrados\n");
     printf("3 - Comprar produto\n");
-    printf("4 - Visualizar carrinho\n");
+    printf("4 - Abrir/Ver carrinho\n");
     printf("5 - Fechar pedido\n");
     printf("6 - Sair do sistema\n");
 
@@ -33,18 +33,18 @@ void menu() {
         case 5: fecharPedido(); break;
         case 6:
             printf("Volte sempre!\n");
-            sleep(2);
+            Sleep(2000);
             exit(0);
         default:
             printf("Opção inválida.\n");
-            sleep(2);
+            Sleep(2000);
             menu();
     }
 }
 
 // Cadastra um novo produto
 void cadastrarProduto() {
-    printf("Cadastro de Produto\n");
+    printf("Cadastro de Novo Produto\n");
 
     printf("Informe o nome do produto: \n");
     fgets(produtos[contador_produto].nome, 30, stdin);
@@ -57,7 +57,7 @@ void cadastrarProduto() {
     printf("O produto %s foi cadastrado com sucesso.\n", strtok(produtos[contador_produto].nome, "\n"));
 
     contador_produto++;
-    sleep(2);
+    Sleep(2000);
     menu();
 }
 
@@ -68,12 +68,12 @@ void listarProdutos() {
         for (int i = 0; i < contador_produto; i++) {
             infoProduto(produtos[i]);
             printf("------------------\n");
-            sleep(1);
+            Sleep(1000);
         }
     } else {
         printf("Não temos produtos cadastrados.\n");
     }
-    sleep(2);
+    Sleep(2000);
     menu();
 }
 
@@ -94,7 +94,7 @@ void comprarProduto() {
     } else {
         printf("Produto não encontrado.\n");
     }
-    sleep(2);
+    Sleep(2000);
     menu();
 }
 
@@ -110,7 +110,7 @@ void visualizarCarrinho() {
     } else {
         printf("Carrinho vazio.\n");
     }
-    sleep(2);
+    Sleep(2000);
     menu();
 }
 
@@ -153,7 +153,7 @@ void fecharPedido() {
         printf("Total da compra: R$ %.2f\n", valorTotal);
         contador_carrinho = 0;
         printf("Compra finalizada. Obrigado!\n");
-        sleep(5);
+        Sleep(5000);
     } else {
         printf("Carrinho vazio.\n");
     }
